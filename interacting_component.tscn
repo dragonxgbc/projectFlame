@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccxikmes5cvpt"]
+
+[ext_resource type="FontFile" uid="uid://m34e3rqnq6c" path="res://editundo.ttf" id="1_0w7yd"]
+[ext_resource type="Script" uid="uid://wy73g8c26df8" path="res://scripts/interacting_component.gd" id="1_3rmx8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3rmx8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0cdkf"]
+font = ExtResource("1_0w7yd")
+font_size = 13
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="interactingComponent" type="Node2D"]
+script = ExtResource("1_3rmx8")
+
+[node name="interactRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactRange"]
+shape = SubResource("CircleShape2D_3rmx8")
+
+[node name="interactLabel" type="Label" parent="interactRange"]
+z_index = 10
+texture_filter = 1
+texture_repeat = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -105.0
+offset_right = 48.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "E to Interact"
+label_settings = SubResource("LabelSettings_0cdkf")
+horizontal_alignment = 1
+vertical_alignment = 1
