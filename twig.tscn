@@ -1,0 +1,98 @@
+[gd_scene load_steps=15 format=3 uid="uid://d4exclc2uhvv2"]
+
+[ext_resource type="Script" uid="uid://djqe7p1w3fp0w" path="res://scripts/twig.gd" id="1_q01it"]
+[ext_resource type="Texture2D" uid="uid://dqc8sy0frxbpv" path="res://sprites/twig.png" id="2_qmpk0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_niyqg"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjaf3"]
+atlas = ExtResource("2_qmpk0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ucjg"]
+atlas = ExtResource("2_qmpk0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34ecj"]
+atlas = ExtResource("2_qmpk0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdpfl"]
+atlas = ExtResource("2_qmpk0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p08ur"]
+atlas = ExtResource("2_qmpk0")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr58u"]
+atlas = ExtResource("2_qmpk0")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imsnj"]
+atlas = ExtResource("2_qmpk0")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vegsb"]
+atlas = ExtResource("2_qmpk0")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywa2h"]
+atlas = ExtResource("2_qmpk0")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fwvy"]
+atlas = ExtResource("2_qmpk0")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_txcy2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjaf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ucjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34ecj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdpfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p08ur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr58u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imsnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vegsb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywa2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fwvy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="twig" type="Area2D"]
+script = ExtResource("1_q01it")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_niyqg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_txcy2")
+frame_progress = 0.671997
+
+[connection signal="body_entered" from="." to="." method="onBodyEntered"]

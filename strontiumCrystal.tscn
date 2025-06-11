@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://dobinwq78hvn4"]
+
+[ext_resource type="Script" uid="uid://cog6n0prxdu71" path="res://scripts/strontiumCrystal.gd" id="1_kiqft"]
+[ext_resource type="Texture2D" uid="uid://dln80p2d0u0ar" path="res://sprites/scuffed_stronium.png" id="2_l4iy7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_niyqg"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2x2s"]
+atlas = ExtResource("2_l4iy7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajnvr"]
+atlas = ExtResource("2_l4iy7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foewb"]
+atlas = ExtResource("2_l4iy7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eggwj"]
+atlas = ExtResource("2_l4iy7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tln76"]
+atlas = ExtResource("2_l4iy7")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q12uk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2x2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajnvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foewb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eggwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tln76")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="strontiumCrystal" type="Area2D"]
+script = ExtResource("1_kiqft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_niyqg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_q12uk")
+autoplay = "default"
+frame = 1
+frame_progress = 0.127365
+
+[connection signal="body_entered" from="." to="." method="onBodyEntered"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://ha0mojvd4baa"]
+
+[ext_resource type="Texture2D" uid="uid://bss4wy2l8h2wf" path="res://sprites/coin2.png" id="1_c7q4f"]
+[ext_resource type="Script" uid="uid://bhd1llpy2ysco" path="res://scripts/sodiumCrystal.gd" id="1_flsc0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flsc0"]
+atlas = ExtResource("1_c7q4f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmu7d"]
+atlas = ExtResource("1_c7q4f")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n3ym"]
+atlas = ExtResource("1_c7q4f")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x3lc"]
+atlas = ExtResource("1_c7q4f")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uadnq"]
+atlas = ExtResource("1_c7q4f")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uu41m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flsc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmu7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n3ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x3lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uadnq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_niyqg"]
+radius = 7.0
+
+[node name="sodiumCrystal" type="Area2D"]
+script = ExtResource("1_flsc0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_uu41m")
+autoplay = "default"
+frame_progress = 0.813198
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_niyqg")
+
+[connection signal="body_entered" from="." to="." method="onBodyEntered"]
