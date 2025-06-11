@@ -93,6 +93,7 @@ shape = SubResource("CircleShape2D_niyqg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_txcy2")
-frame_progress = 0.671997
+autoplay = "default"
+frame_progress = 0.87805
 
 [connection signal="body_entered" from="." to="." method="onBodyEntered"]
